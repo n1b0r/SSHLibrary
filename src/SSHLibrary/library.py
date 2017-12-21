@@ -11,7 +11,7 @@
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-
+from __future__ import print_function
 try:
     from robot.api import logger
 except ImportError:
@@ -706,8 +706,8 @@ class SSHLibrary(object):
         if logger:
             logger.write(msg, level)
         else:
-            print '*%s* %s' % (level, msg)
-
+            print ('*%s* %s' % (level, msg))
+    
     def _active_loglevel(self, level):
         if level is None:
             return self._config.loglevel
@@ -832,7 +832,7 @@ class SSHLibrary(object):
             login_output = login_method(username, *args)
             self._log('Read output: %s' % login_output)
             return login_output
-        except SSHClientException, e:
+        except SSHClientException as e:
             raise RuntimeError(e)
 
     def execute_command(self, command, return_stdout=True, return_stderr=False,
@@ -1498,7 +1498,7 @@ class SSHLibrary(object):
         """
         try:
             items = self.current.list_dir(path, pattern, absolute)
-        except SSHClientException, msg:
+        except SSHClientException as msg:
             raise RuntimeError(msg)
         self._info('%d item%s:\n%s' % (len(items), plural_or_not(items),
                                        '\n'.join(items)))
@@ -1511,7 +1511,7 @@ class SSHLibrary(object):
         """
         try:
             files = self.current.list_files_in_dir(path, pattern, absolute)
-        except SSHClientException, msg:
+        except SSHClientException as msg:
             raise RuntimeError(msg)
         files = self.current.list_files_in_dir(path, pattern, absolute)
         self._info('%d file%s:\n%s' % (len(files), plural_or_not(files),
@@ -1525,7 +1525,7 @@ class SSHLibrary(object):
         """
         try:
             dirs = self.current.list_dirs_in_dir(path, pattern, absolute)
-        except SSHClientException, msg:
+        except SSHClientException as msg:
             raise RuntimeError(msg)
         self._info('%d director%s:\n%s' % (len(dirs),
                                           'y' if len(dirs) == 1 else 'ies',
