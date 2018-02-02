@@ -22,7 +22,7 @@ except ImportError:
         'Make sure you have Paramiko installed.'
     )
 
-from .abstractclient import (AbstractShell, AbstractSFTPClient,
+from abstractclient import (AbstractShell, AbstractSFTPClient,
                              AbstractSSHClient, AbstractCommand,
                              SSHClientException, SFTPFileInfo)
 
