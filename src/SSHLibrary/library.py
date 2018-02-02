@@ -19,11 +19,11 @@ except ImportError:
     logger = None
 from robot.utils import ConnectionCache
 
-from .abstractclient import SSHClientException
-from .client import SSHClient
-from .config import (Configuration, IntegerEntry, LogLevelEntry, NewlineEntry,
+from abstractclient import SSHClientException
+from client import SSHClient
+from config import (Configuration, IntegerEntry, LogLevelEntry, NewlineEntry,
                      StringEntry, TimeEntry)
-from .version import VERSION
+from version import VERSION
 
 __version__ = VERSION
 

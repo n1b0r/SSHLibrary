@@ -22,7 +22,7 @@ import time
 import glob
 import posixpath
 
-from .config import (Configuration, IntegerEntry, NewlineEntry, StringEntry,
+from config import (Configuration, IntegerEntry, NewlineEntry, StringEntry,
                      TimeEntry)
 
 

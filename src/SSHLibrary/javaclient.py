@@ -24,7 +24,7 @@ import jarray
 from java.io import (BufferedReader, File, FileOutputStream, InputStreamReader,
                      IOException)
 
-from .abstractclient import (AbstractShell, AbstractSSHClient,
+from abstractclient import (AbstractShell, AbstractSSHClient,
                              AbstractSFTPClient, AbstractCommand,
                              SSHClientException, SFTPFileInfo)
 
